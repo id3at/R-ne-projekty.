@@ -1,8 +1,8 @@
 """
 Autor Tomasz Głuc
-Program który wyszukuje w zagniezdzonych listach,listy,
-te liczby,  które występują tylko raz w liscie.
-I wyświetla wynik
+Program który wyszukuje w zagniezdzonych listach listy,
+te obiekty,  które występują tylko raz w liscie.
+I zwraca wynik
 """
 
 
