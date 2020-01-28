@@ -1,4 +1,5 @@
 """
+Autor: Tomasz Głuc
 System logowania, na bazie obiektów słownika.
 Z bazą danych logsys.txt.
 
