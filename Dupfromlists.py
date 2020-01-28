@@ -2,7 +2,7 @@
 Autor Tomasz Głuc
 Program który wyszukuje w zagniezdzonych listach listy,
 te obiekty,  które występują tylko raz w liscie.
-I zwraca wynik
+I zwraca wynik w liscie.
 """
 
 
