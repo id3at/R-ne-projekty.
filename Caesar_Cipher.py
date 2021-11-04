@@ -25,20 +25,41 @@ decyzja_uzytkownika = input(
 
 
 def szyfrowanie():
-    slowo_do_zaszyfrowania = input("Podaj slowo_do_zaszyfrowania ").lower()
-    index_slowa = [znaki_alfabetu.index(t)
-                   for t in slowo_do_zaszyfrowania if t != ' ']
-    slowo_zaszyfrowane = [znaki_alfabetu_przesuniete[t] for t in index_slowa]
-    print("".join(slowo_zaszyfrowane).title())
+    slowa_do_zaszyfrowania = input("Podaj tekst do zaszyfrowania ").lower().split(' ')
+    index_slow = []
+    for slowo in slowa_do_zaszyfrowania:
+        for litera in slowo:
+            index_slow.append(znaki_alfabetu.index(litera))
+        index_slow.append(' ')
+            
+    slowa_zaszyfrowane = []
+
+    for index in index_slow:
+        if index == ' ':
+            slowa_zaszyfrowane.append(index)
+        else:
+            slowa_zaszyfrowane.append(znaki_alfabetu_przesuniete[index])
+    print("".join(slowa_zaszyfrowane).title())
 
 
 def odszyfrowanie():
-    slowo_do_odszyfrowania = input("Podaj slowo do odszyfrowania").lower()
-    index_slowa_do_odszyfrowania = [znaki_alfabetu_przesuniete.index(
-        t) for t in slowo_do_odszyfrowania if t != ' ']
-    slowo_odszyfrowane = [znaki_alfabetu[t]
-                          for t in index_slowa_do_odszyfrowania]
-    print("".join(slowo_odszyfrowane).title())
+    slowa_do_odszyfrowania = input("Podaj tekst do odszyfrowania").lower().split(' ')
+    index_slow_do_odszyfrowania = []
+    for slowo in slowa_do_odszyfrowania:
+        for litera in slowo:
+            index_slow_do_odszyfrowania.append(znaki_alfabetu_przesuniete.index(litera))
+        index_slow_do_odszyfrowania.append(' ')
+    
+    slowa_odszyfrowane = []
+
+    for index in index_slow_do_odszyfrowania:
+        if index == ' ':
+            slowa_odszyfrowane.append(index)
+        else:
+            slowa_odszyfrowane.append(znaki_alfabetu[index])
+
+
+    print("".join(slowa_odszyfrowane).title())
 
 
 while decyzja_uzytkownika not in 'soq':
