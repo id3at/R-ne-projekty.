@@ -25,56 +25,51 @@ decyzja_uzytkownika = input(
 
 
 def szyfrowanie():
-    slowa_do_zaszyfrowania = input("Podaj tekst do zaszyfrowania ").lower().split(' ')
+    slowa_do_zaszyfrowania = input(
+        "Podaj tekst do zaszyfrowania ").lower().split(' ')
     index_slow = []
     for slowo in slowa_do_zaszyfrowania:
         for litera in slowo:
-            if litera in symbole or litera in liczby:
-                index_slow.append(litera)
-            else:
+            if litera in znaki_alfabetu:
+
                 index_slow.append(znaki_alfabetu.index(litera))
+            else:
+                index_slow.append(litera)
+
         index_slow.append(' ')
-            
+
     slowa_zaszyfrowane = []
 
     for index in index_slow:
         if type(index) == type(1):
             slowa_zaszyfrowane.append(znaki_alfabetu_przesuniete[index])
-        elif index == ' ':
+        else:
             slowa_zaszyfrowane.append(str(index))
-        elif str(index) in symbole:
-            slowa_zaszyfrowane.append(str(index))
-        elif str(index) in liczby:
-            slowa_zaszyfrowane.append(str(index)) 
-        
+
     print("".join(slowa_zaszyfrowane).title())
 
 
 def odszyfrowanie():
-    slowa_do_odszyfrowania = input("Podaj tekst do odszyfrowania").lower().split(' ')
+    slowa_do_odszyfrowania = input(
+        "Podaj tekst do odszyfrowania").lower().split(' ')
     index_slow_do_odszyfrowania = []
     for slowo in slowa_do_odszyfrowania:
         for litera in slowo:
-            if litera in symbole or litera in liczby:
-                index_slow_do_odszyfrowania.append(litera)
+            if litera in znaki_alfabetu:
+                index_slow_do_odszyfrowania.append(
+                    znaki_alfabetu_przesuniete.index(litera))
             else:
-                index_slow_do_odszyfrowania.append(znaki_alfabetu_przesuniete.index(litera))
+                index_slow_do_odszyfrowania.append(litera)
+
         index_slow_do_odszyfrowania.append(' ')
-    
+
     slowa_odszyfrowane = []
 
     for index in index_slow_do_odszyfrowania:
         if type(index) == type(1):
-             slowa_odszyfrowane.append(znaki_alfabetu[index])
-        elif index == ' ':
+            slowa_odszyfrowane.append(znaki_alfabetu[index])
+        else:
             slowa_odszyfrowane.append(str(index))
-        elif str(index) in symbole:
-            slowa_odszyfrowane.append(str(index))
-        elif str(index) in liczby:
-            slowa_odszyfrowane.append(str(index))
-        
-           
-
 
     print("".join(slowa_odszyfrowane).title())
 
@@ -95,8 +90,6 @@ while decyzja_uzytkownika != 'q':
 
         except:
             print("Przesuniecie musi byc liczbą całkowitą.")
-    liczby = string.digits
-    symbole = string.punctuation
     znaki_alfabetu = list(string.ascii_lowercase)
     znaki_alfabetu_przesuniete = znaki_alfabetu[przesuniecie_alfabetu:] + \
         znaki_alfabetu[:przesuniecie_alfabetu]
