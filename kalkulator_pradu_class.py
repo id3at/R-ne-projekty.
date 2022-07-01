@@ -23,6 +23,9 @@ class KalkulatorKosztowUslug():
         self.licznik_od = licznik_od
         self.licznik_do = licznik_do
         self.jednostka = jednostka
+    
+    def __str__(self):
+        return f"Helolo. To ja, kalkulator energi"
 
     def czas_uzytkowania(self):
         czas = datetime.datetime(*self.data_do) - datetime.datetime(*self.data_od)
