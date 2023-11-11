@@ -3,7 +3,7 @@ import os
 def generator_m3u(folder_glowny):
   """Generuje listę .m3u z folderu i podfolderów, plików .mp4. pliki zaczynają sie cyframi na koncu cyfry kropka i spacja"""
 
-  with open(f"/home/id3at/Pulpit/playlis.m3u", "w") as f:
+  with open(f"{folder_głowny}/playlis.m3u", "w") as f:
     lista_fold = (os.listdir(folder_glowny))
     lista_fold_posegregowana =  sorted(lista_fold, key=lambda lista_fold: int(lista_fold[:3].rstrip(". ")) if int(lista_fold[:3].rstrip(". ").isdigit()) else False)
 
@@ -21,5 +21,6 @@ def generator_m3u(folder_glowny):
         f.write(f"{nazwa_podfolderu}\n")
 
 
-folder_glowny = "/media/id3at/kursudemy/100 Days of Code - The Complete Python Pro Bootcamp for 2021/[TutsNode.com] - 100 Days of Code - The Complete Python Pro Bootcamp for 2021"
+folder_glowny = "/Sciezka/do/folderu/z/plikami/do/posortowania" 
+#folder_glowny = os.getcwd() #opcjonalnie, trzeba znajdowac sie w folderze do posortowania
 generator_m3u(folder_glowny)
